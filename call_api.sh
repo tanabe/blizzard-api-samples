@@ -8,7 +8,7 @@ LOCALE=en_US
 function show_usage() {
 cat << EOS
     USAGE:
-        call_api.sh [cards|metadata|deck]
+        call_api.sh [cards <card_id>|metadata|deck]
 EOS
 }
 
@@ -17,14 +17,19 @@ if [ -z "$ACCESS_TOKEN" ]; then
     exit 1
 fi
 
-if [ $# != 1 ]; then
+if [ $# -lt 1 ]; then
     show_usage
     exit 1
 fi
 
 case $1 in
 cards)
-    CARD_ID=678
+    if [ -z "$2" ]; then
+        echo "Please specify card id"
+        exit 1
+    fi
+
+    CARD_ID=$2
     curl --header "Authorization: Bearer ${ACCESS_TOKEN}" ${API_ENDPOINT}/cards/${CARD_ID}?locale=${LOCALE}
     ;;
 metadata)
