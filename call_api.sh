@@ -36,8 +36,8 @@ metadata)
     curl --header "Authorization: Bearer ${ACCESS_TOKEN}" ${API_ENDPOINT}/metadata/classes?locale=${LOCALE}
     ;;
 deck)
-    DECK_CODE=AAECAQcEHNIC3q0D1LoDDRaQA9QE1Ai9pgP1qAPcqQPdrQOktgOrtgO7uQPAuQOcuwMA
-    curl --header "Authorization: Bearer ${ACCESS_TOKEN}" ${API_ENDPOINT}/deck/${DECK_CODE}?locale=us_US
+    DECK_CODE="AAECAR8etQPhBIoHlwjbCfyjA+SkA6alA/KlA4SnA4qtA4utA/muA/yvA/6vA4ewA+ewA/ewA/+wA4exA4ixA5GxA9iyA6K3A6+3A4O5A6K5A/+6A9e+A+W+AwAA"
+    curl --header "Authorization: Bearer ${ACCESS_TOKEN}" ${API_ENDPOINT}/deck/${DECK_CODE}?locale=${LOCALE}
     ;;
 *)
     show_usage
