@@ -28,6 +28,8 @@ $ export ACCESS_TOKEN=`./get_token.sh | jq -r .access_token`
 
 ### Call api
 
+This is example of Hearthstone API.
+
 ```
 $ ./call_api.sh metadata
 ```
